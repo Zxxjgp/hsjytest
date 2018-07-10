@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.EachertsDao">
+    <resultMap id="HospitalMap" type="com.springmvc.pojo.Eacherts">
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="count" property="count" jdbcType="INTEGER" />
+    </resultMap>
+
+    <select id="findAllList" resultMap="HospitalMap">
+        SELECT  * FROM  access_test
+    </select>
+
+</mapper>

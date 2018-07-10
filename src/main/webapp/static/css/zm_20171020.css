@@ -1,0 +1,282 @@
+.fzzm-article-box {
+    background-color: white;
+    text-align: left;
+    padding-right: 0.625em;
+    padding-left: 0.625em;
+}
+.fzzm-article-box .article-title-first {
+    color: #444444;
+    font-size: 1.0625em;
+    font-weight: normal;
+}
+.fzzm-article-box .article-title-second {
+    color: #999999;
+    font-size: 0.875em;
+    font-weight: normal;
+}
+.fzzm-article-box p {
+    color: #555555;
+    font-size: 0.875em;
+}
+
+.fzzm-zx-box {
+    position: fixed;
+    right: 0.5em;
+    bottom: 6.25em;
+}
+
+.weui-btn.fzzm-primary-btn {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-color: white;
+    color: #53ace4;
+    border: none;
+}
+.weui-btn.fzzm-primary-btn:after {
+    border: none;
+}
+.weui-btn.fzzm-primary-btn:disabled, .weui-btn.fzzm-primary-btn.disabled {
+    background-color: #cecece;
+    color: grey;
+}
+
+.fzzm-zx-btn {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    height: 2.0625em;
+    line-height: 2.0625em;
+    padding-left: 0.5625em;
+    padding-right: 0.5625em;
+    color: #333333;
+}
+.fzzm-zx-btn::after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #53ace4;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.fzzm-zx-icon {
+    display: inline-block;
+    width: 1.3125em;
+    height: 1.1875em;
+    line-height: 0;
+    background-image: url("/static/image/fzzm_zx_iocn.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.fzzm-banner {
+    text-align: center;
+    line-height: 0;
+}
+.fzzm-banner > img {
+    vertical-align: middle;
+    width: 100%;
+    max-width: 100%;
+}
+
+.fzzm-label {
+    display: block;
+    position: relative;
+    color: #53ace4;
+    line-height: 1;
+    text-align: center;
+}
+.fzzm-label .fzzm-label-name {
+    font-weight: normal;
+    line-height: 1;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    background-color: #f4f4f4;
+    padding-left: 0.625em;
+    padding-right: 0.625em;
+    margin: 0 auto;
+    font-size: 1em;
+}
+.fzzm-label:after {
+    content: '';
+    background-image: url("imgs/fzzm_label_bg.png");
+    -webkit-background-size: auto 100%;
+    background-size: auto 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+    height: 3px;
+}
+
+.fzzm-info-box {
+    display: block;
+    border: 1px solid #53ace4;
+    padding: 0.9375em;
+    -webkit-border-radius: 0.625em;
+    border-radius: 0.625em;
+    background-color: white;
+}
+.fzzm-info-box > p {
+    text-align: justify;
+}
+
+.fzzm-raw-right {
+    background-image: url("imgs/fzzm_raw_r.png");
+    background-position: right center;
+    -webkit-background-size: 0.4375em auto;
+    background-size: 0.4375em auto;
+    background-repeat: no-repeat;
+    padding-right: 2em;
+}
+
+.fzzm-jl-item .fzzm-jl-row {
+    line-height: 1;
+    margin-top: 0.625em;
+    margin-bottom: 0.625em;
+}
+.fzzm-jl-item .fzzm-jl-name {
+    color: #444444;
+    font-size: 0.9375em;
+    line-height: 1.2;
+    text-align: justify;
+}
+.fzzm-jl-item .fzzm-jl-state {
+    color: #999999;
+    font-size: 0.8125em;
+    margin-left: 1em;
+}
+.fzzm-jl-item .fzzm-jl-man {
+    font-size: 0.875em;
+    color: #666666;
+}
+.fzzm-jl-item .fzzm-jl-time {
+    font-size: 0.75em;
+    color: #999999;
+    margin-left: 1em;
+}
+
+.toolbar .title {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.toolbar .picker-button,
+.weui-cells_radio .weui-check:checked + .weui-icon-checked:before {
+    color: #53ace4;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #53ace4;
+}
+
+.fzzm-xy-dialog {
+    width: 72%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-border-radius: 0.8em;
+    border-radius: 0.8em;
+    background-color: white;
+    overflow: hidden;
+}
+.fzzm-xy-dialog .fzzm-xy-hd {
+    height: 2.4em;
+    line-height: 2.4em;
+    text-align: center;
+    background-color: #53ace4;
+    color: white;
+}
+.fzzm-xy-dialog .fzzm-xy-hd .hd-name {
+    margin: 0 auto;
+    height: 100%;
+    font-weight: normal;
+    font-size: 1em;
+}
+.fzzm-xy-dialog .fzzm-xy-bd {
+    padding: 1em;
+}
+.fzzm-xy-dialog .fzzm-xy-ft {
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+.file-upload-list {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.file-upload-list li {
+    float: left;
+    width: 33.333%;
+    height: 19vw;
+    max-height: 4.5em;
+    text-align: center;
+    list-style: none;
+    padding-left: 3%;
+    padding-right: 3%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 0.625em;
+}
+.file-upload-list li .upload-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 4.5em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e9e9e9;
+    -webkit-background-size: 2.125em 1.59375em;
+    background-size: 2.125em 1.59375em;
+    background-image: url("imgs/up_item_bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.file-upload-list li .upload-item.add-item {
+    background-image: none;
+}
+.file-upload-list li .upload-item.add-item .iconfont {
+    font-size: 2em;
+    color: #c1c1c1;
+}
+.file-upload-list li .upload-item.img-item img {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    line-height: 1;
+}
+.file-upload-list li .upload-item .del-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    background-color: red;
+    color: white;
+    overflow: hidden;
+}
+.file-upload-list li .upload-item .del-btn .iconfont {
+    font-size: 1em;
+}
+.file-upload-list input[type='file'],
+.file-upload-list input[type="image"] {
+    display: none;
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.ProjectResruitDao">
+
+    <resultMap id="BaseResultMap" type="com.springmvc.pojo.ProjectResruit">
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="recruit_title" property="recruitTitle" jdbcType="VARCHAR" />
+        <result column="recruit_introduce" property="recruitIntroduce" jdbcType="VARCHAR" />
+        <result column="recruit_select_standard" property="recruitSelectStandard" jdbcType="VARCHAR" />
+        <result column="recruit_patient_benefit" property="recruitPatientBenefit" jdbcType="VARCHAR" />
+        <result column="disease_type_id" property="diseaseTypeId" jdbcType="VARCHAR" />
+        <result column="hospital_id" property="hospitalId" jdbcType="VARCHAR" />
+        <result column="recruit_time" property="recruitTime" jdbcType="DATE" />
+        <result column="researcher" property="researcher" jdbcType="VARCHAR" />
+        <result column="bid_party" property="bidParty" jdbcType="VARCHAR" />
+        <result column="state" property="state" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <resultMap id="NewProjectResruitMap" type="com.springmvc.pojo.ProjectResruit">
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="recruit_title" property="recruitTitle" jdbcType="VARCHAR" />
+        <result column="recruit_introduce" property="recruitIntroduce" jdbcType="VARCHAR" />
+        <result column="recruit_select_standard" property="recruitSelectStandard" jdbcType="VARCHAR" />
+        <result column="recruit_patient_benefit" property="recruitPatientBenefit" jdbcType="VARCHAR" />
+        <result column="disease_type_id" property="diseaseTypeId" jdbcType="VARCHAR" />
+        <result column="hospital_id" property="hospitalId" jdbcType="VARCHAR" />
+        <result column="recruit_time" property="recruitTime" jdbcType="DATE" />
+        <result column="researcher" property="researcher" jdbcType="VARCHAR" />
+        <result column="bid_party" property="bidParty" jdbcType="VARCHAR" />
+        <result column="state" property="state" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="prosrColumn" >
+          id ,
+          recruit_title ,
+          recruit_introduce,
+          recruit_select_standard,
+          recruit_patient_benefit,
+          disease_type_id,
+          recruit_time,
+          researcher,
+          bid_party,
+          enrollmode,
+          state
+    </sql>
+    <select id="findList" resultMap="NewProjectResruitMap">
+        SELECT
+        <include refid="prosrColumn" />
+        FROM project_recruits
+        <where>
+            <if test="diseaseTypeId !=null  and diseaseTypeId !='' ">
+               state = '1' AND disease_type_id = #{diseaseTypeId}
+            </if>
+        </where>
+    </select>
+
+    <select id="findproject" resultMap="BaseResultMap" parameterType="String">
+        SELECT
+        <include refid="prosrColumn" />
+        FROM project_recruits
+        <where>
+            <if test="_parameter !=null  and _parameter !='' ">
+                id = #{id} and state = '1'
+            </if>
+        </where>
+    </select>
+
+    <update id="delestate" parameterType="String" >
+        UPDATE  project_recruits SET state = '0' where id = #{id }
+    </update>
+
+
+    <insert id="add" parameterType="com.springmvc.pojo.ProjectResruit">
+        INSERT  INTO  project_recruits   VALUES (#{id}, #{recruitTitle}, #{recruitTime}, #{recruitIntroduce}, #{recruitSelectStandard}, #{recruitPatientBenefit}, #{diseaseTypeId}, #{bidParty}, #{researcher}, #{state} ,#{enrollmode} )
+    </insert>
+
+
+    <select id="findalllist" parameterType="Map" resultMap="NewProjectResruitMap">
+        SELECT  * FROM  project_recruits WHERE state = '1' ORDER BY state
+        <if test="start!=null and size!=null">
+            limit #{start },#{size }
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from project_recruits where state = '1'
+    </select>
+    <update id="addstate" parameterType="String" >
+        UPDATE  project_recruits SET state = '1' where id = #{id }
+    </update>
+
+
+    <select id="searchhospital" resultMap="NewProjectResruitMap"
+            parameterType="java.lang.String">
+        select
+        *
+        from project_recruits
+        where recruit_title LIKE CONCAT(CONCAT('%', #{userName}), '%') and state = '1'
+    </select>
+    <select id="queryall"  resultType="int">
+        select COUNT(*) from project_recruits where state = '1'
+    </select>
+</mapper>

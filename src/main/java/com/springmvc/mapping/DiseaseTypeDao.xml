@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.DiseaseTypeDao">
+    <resultMap id="BaseResultMap" type="com.springmvc.pojo.DiseaseType">
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="category" property="category" jdbcType="VARCHAR" />
+        <result column="state" property="state" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="diseaseCloumn" >
+        id AS  id,
+        category AS  category
+    </sql>
+    <select id="findAllList" resultMap="BaseResultMap">
+        SELECT
+        <include refid="diseaseCloumn" />
+        FROM  disease_type
+    </select>
+    <insert id="insert" parameterType="com.springmvc.pojo.DiseaseType">
+        INSERT  into disease_type (id, category, state) VALUES ( #{id}, #{category}, #{state} )
+    </insert>
+    <update id="delestate" parameterType="String" >
+        UPDATE  disease_type SET state = '0' where id = #{id }
+    </update>
+
+    <select id="findalllist" parameterType="Map" resultMap="BaseResultMap">
+        SELECT  * FROM  disease_type WHERE state = '1' ORDER BY state
+        <if test="start!=null and size!=null">
+            limit #{start },#{size }
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from disease_type where state = '1'
+    </select>
+
+    <insert id="add" parameterType="com.springmvc.pojo.DiseaseType">
+        INSERT  INTO  disease_type VALUES (#{id }, #{category }, #{state })
+    </insert>
+
+    <update id="update" parameterType="com.springmvc.pojo.DiseaseType">
+        UPDATE disease_type
+        <set>
+            <if test="category!=null and category!='' ">
+                category = #{category},
+            </if>
+        </set>
+        WHERE  id = #{id }
+    </update>
+
+    <select id="searchdiseasetype" resultMap="BaseResultMap"
+            parameterType="java.lang.String">
+        select
+        *
+        from disease_type
+        where category LIKE CONCAT(CONCAT('%', #{userName}), '%') and state = '1'
+    </select>
+
+
+    <select id="findists" resultMap="BaseResultMap" >
+        SELECT  * FROM  disease_type WHERE state = '1' ORDER BY state
+    </select>
+
+
+
+    <select id="finds" resultMap="BaseResultMap" >
+        SELECT  * FROM  disease_type
+    </select>
+
+     <select id="testfindnull" resultMap="BaseResultMap" >
+         SELECT  * FROM  disease_type where id = '5555'
+     </select>
+</mapper>

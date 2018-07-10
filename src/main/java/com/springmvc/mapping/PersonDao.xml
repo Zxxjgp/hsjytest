@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.PersonDao">
+    <resultMap id="PersonMap" type="com.springmvc.pojo.Person">
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="username" property="useranme" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="birthday" property="birthday" jdbcType="DATE" />
+    </resultMap>
+   <select id="findAllList" resultMap="PersonMap" parameterType="com.springmvc.pojo.Person">
+       SELECT * from person
+   </select>
+
+</mapper>

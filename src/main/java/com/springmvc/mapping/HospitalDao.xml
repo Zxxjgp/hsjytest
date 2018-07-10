@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.HospitalDao">
+    <resultMap id="HospitalMap" type="com.springmvc.pojo.Hospital">
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="hospital_name" property="hospitalName" jdbcType="VARCHAR" />
+        <result column="hospital_region" property="hospitalRegion" jdbcType="VARCHAR" />
+        <result column="state" property="state" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findlist" resultMap="HospitalMap">
+        SELECT  * FROM  hospital WHERE state = '1' AND id IN (SELECT hospital_id FROM recruit_relation_hospital WHERE state = '1' and recruit_id = #{id} )
+    </select>
+
+    <insert id="insert" parameterType="com.springmvc.pojo.Hospital">
+        INSERT into hospital (id, hospital_name, hospital_region, state) VALUES (#{id }, #{hospitalName }, #{hospitalRegion }, #{state } )
+    </insert>
+
+    <update id="delestate" parameterType="String" >
+        UPDATE  hospital SET state = '0' where id = #{id }
+    </update>
+
+    <select id="findalllist" parameterType="Map" resultMap="HospitalMap">
+        SELECT  * FROM  hospital WHERE state = '1' ORDER BY state
+        <if test="start!=null and size!=null">
+            limit #{start },#{size }
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from hospital where state = '1'
+    </select>
+    
+    <insert id="add" parameterType="com.springmvc.pojo.Hospital">
+        INSERT  INTO  hospital VALUES (#{id }, #{hospitalName }, #{hospitalRegion },#{state })
+    </insert>
+
+    <update id="update" parameterType="com.springmvc.pojo.Hospital">
+        UPDATE hospital
+        <set>
+            <if test="hospitalName!=null and hospitalName!='' ">
+                hospital_name=#{hospitalName},
+            </if>
+            <if test="hospitalRegion!=null and hospitalRegion!='' ">
+                hospital_region=#{hospitalRegion},
+            </if>
+        </set>
+        WHERE  id = #{id }
+    </update>
+
+    <update id="delete" parameterType="String">
+         UPDATE  hospital SET state = '0' where id = #{id }
+    </update>
+
+    <select id="searchhospital" resultMap="HospitalMap"
+            parameterType="java.lang.String">
+        select
+        *
+        from hospital
+        where hospital_name LIKE CONCAT(CONCAT('%', #{userName}), '%') and state = '1'
+    </select>
+
+    <select id="findists" resultMap="HospitalMap"  >
+        SELECT  * FROM  hospital WHERE state = '1' ORDER BY state
+    </select>
+
+    <select id="selectconcat" parameterType="com.springmvc.pojo.Hospital" resultMap="HospitalMap">
+        SELECT  * FROM hospital WHERE
+    </select>
+</mapper>

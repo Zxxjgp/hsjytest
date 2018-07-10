@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>echart地图</title>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <link rel="stylesheet" type="text/css" href="./css/basic.css">
+  <style type="text/css">
+    #echart-map{
+      position: relative;
+      height: 100%;
+      width:100%;
+    }
+  </style>
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/echarts.min.js"></script>
+  <script src="./js/china.js"></script>
+  <script src="./js/chinaPaths.js"></script>
+</head>
+
+<body onload="" style="background-color: #000000">
+<div id="echart-map" style="background-color: #000000"></div>
+<script type="text/javascript">
+    function chushihua(myChart,area) {
+        option = {
+            title: {
+                text: '企业app的使用情况',
+                subtext: '虚构图标',
+                x: 'center',
+                "textStyle": {
+                    "color": 'white',
+                    "fontWeight": 'normal',
+                    "fontSize": 24
+                }
+
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}'
+            },
+            geo: {
+                map: 'china',
+                label: {
+                    emphasis: {
+                        show: false
+                    }
+                },
+                roam: false,
+                zoom: 0.9,
+                left: '20%',
+                itemStyle: {
+                    normal: {
+                        areaColor: 'rgba(5,12,18,0)',//#323c48
+                        borderWidth: 1,
+                        borderColor: '#2a62ad'//#111
+
+                    },
+                    emphasis: {
+                        areaColor: 'rgba(57,83,98,1)',//#2a333d
+                        shadowColor: '#2a62ad',
+                        shadowBlur: 5,
+                        borderWidth: 1,
+                        borderColor: '#7ba6d3'
+                    }
+                },
+                regions: [{
+                    name: 'china',
+                    itemStyle: {
+                        normal: {
+                            areaColor: 'rgba(57,83,98,1)',//#323c48
+                            shadowColor: '#2a62ad',
+                            shadowBlur: 5,
+                            borderWidth: 1,
+                            borderColor: '#7ba6d3'//#111
+                        },
+                        emphasis: {
+                            areaColor: 'rgba(57,83,98,1)',//#323c48
+                            shadowColor: '#2a62ad',
+                            shadowBlur: 5,
+                            borderWidth: 1,
+                            borderColor: '#7ba6d3'
+                        }
+                    }
+                }/*,{
+                      name:'南海诸岛',
+                      selected: false,
+                      itemStyle: {
+                          normal: {
+                              areaColor: 'rgba(0,0,0,0)',//#323c48
+                              shadowColor:'rgba(0,0,0,0)',
+                              borderColor:'rgba(0,0,0,0)',
+                              shadowBlur: 0
+                          },
+                          emphasis: {
+                              areaColor: 'rgba(0,0,0,0)',//#323c48
+                              shadowColor:'rgba(0,0,0,0)',
+                              borderColor:'rgba(0,0,0,0)',
+                              shadowBlur: 0
+                          }
+                      },
+                  }*/]
+            },
+            series: [
+                {
+                    type: 'lines',
+                    coordinateSystem: 'geo',
+                    polyline: true,
+                    data: [{
+                        coords: paths,
+                        lineStyle: {
+                            normal: {
+                                color: "#a3d3fe",
+                                shadowColor: '#2a62ad',
+                                shadowBlur: 5,
+                                width: 2
+                            },
+                            emphasis: {
+                                color: '#a3d3fe',
+                                shadowColor: '#2a62ad',
+                                shadowBlur: 5,
+                                width: 2
+                            }
+                        }
+                    }, {
+                        coords: paths2,
+                        lineStyle: {
+                            normal: {
+                                color: "#a3d3fe",
+                                shadowColor: '#2a62ad',
+                                shadowBlur: 5,
+                                width: 2
+                            },
+                            emphasis: {
+                                color: '#a3d3fe',
+                                shadowColor: '#2a62ad',
+                                shadowBlur: 5,
+                                width: 2
+                            }
+                        }
+                    }, {
+                        coords: paths3,
+                        lineStyle: {
+                            normal: {
+                                color: "#a3d3fe",
+                                shadowColor: '#2a62ad',
+                                shadowBlur: 5,
+                                width: 2
+                            },
+                            emphasis: {
+                                color: '#a3d3fe',
+                                shadowColor: '#2a62ad',
+                                shadowBlur: 5,
+                                width: 2
+                            }
+                        }
+                    }]
+                },
+                {
+                    type: 'effectScatter',
+                    name: '中国',
+                    coordinateSystem: 'geo',
+                    rippleEffect: {
+                        period: 10,
+                        scale: 3,
+                        brushType: 'stroke'
+                    },
+                    symbolSize: 5,
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: '{b}',
+                            position: 'right',
+                            textStyle: {
+                                color: '#bef619'
+                            }
+                        },
+                        emphasis: {
+                            show: true,
+                            formatter: '{b}',
+                            position: 'right',
+                            textStyle: {
+                                color: '#bef619'
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#bef619'
+                        },
+                        emphasis: {
+                            color: '#bef619'
+                        }
+                    },
+                    data: area
+                }
+            ]
+        };
+        myChart.setOption(option);
+    }
+
+    function fuzhi(myChart){
+        $.ajax({
+            contentType : "application/json",
+            type : "GET",
+            url : "http://localhost:8080/hsjytest/ht/china",
+            datatype:'json',
+            success : function(data) {
+                console.log(data);
+
+
+                var servicedata=[];
+                for(var i=0;i<data.length;i++){
+                    var map = {};
+                    map.name = data[i].name;
+                    map.value = [Number(data[i].lists[0]),Number(data[i].lists[1])];
+                    servicedata.push(map);
+                }
+                console.log(data.length);
+                console.log(servicedata);
+                chushihua(myChart,servicedata);
+
+            }
+        });
+    }
+
+    var myChart = echarts.init(document.getElementById('echart-map'));
+    fuzhi(myChart);
+
+
+</script>
+</body>
+</html>

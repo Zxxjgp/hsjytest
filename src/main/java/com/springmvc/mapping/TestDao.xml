@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.TestDao">
+
+    <resultMap id="testtable" type="com.springmvc.pojo.Test">
+            <id property="id" column="id" ></id>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+    </resultMap>
+
+    <select id="find" resultMap="testtable">
+        SELECT  * from admin
+    </select>
+
+    <insert id="insertlist">
+        INSERT  into admin  (username , password ) VALUES
+        (#{username},#{password})
+    </insert>
+
+    <insert id="listinsert" parameterType="List" >
+        INSERT  into admin (username) VALUES
+        <foreach collection="array" item="ls"  separator="," index="index" >
+            (#{ls})
+        </foreach>
+    </insert>
+    
+    
+    <insert id="listsert" parameterType="List" >
+
+        insert into admin ( username , password ) VALUES 
+        
+        <foreach collection="list" item="test" index="index" separator=",">
+            (
+              #{test.username}, #{test.password}
+            )
+        </foreach>
+    </insert>
+</mapper>

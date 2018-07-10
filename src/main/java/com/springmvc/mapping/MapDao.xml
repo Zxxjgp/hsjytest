@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.dao.MapDao">
+    <resultMap id="mapditu" type="com.springmvc.pojo.Map">
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="x" property="x" jdbcType="VARCHAR" />
+        <result column="y" property="y" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="selectall" resultMap="mapditu">
+        SELECT  * FROM  testmap
+    </select>
+
+</mapper>
