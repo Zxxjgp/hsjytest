@@ -10,5 +10,7 @@
    <select id="findAllList" resultMap="PersonMap" parameterType="com.springmvc.pojo.Person">
        SELECT * from person
    </select>
-
+   <insert id="updateandinsert" parameterType="com.springmvc.pojo.Person">
+       insert into person ( id, username ) values ( #{id}, #{username} ) on duplicate key update username = values( username )
+   </insert>
 </mapper>

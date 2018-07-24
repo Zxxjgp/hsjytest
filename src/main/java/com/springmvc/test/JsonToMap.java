@@ -16,5 +16,6 @@ public class JsonToMap {
         List<Map<String,Object>> list = (List <Map <String, Object>>) rs.get("head");
         System.out.println(list.get(0).get("text"));
         System.out.println("wewq");
+
     }
 }

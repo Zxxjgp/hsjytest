@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button class='btn' onclick='divshow()'>btn</button>
+		<script type="text/javascript" src="layer.min.js" ></script>
+		<script type="text/javascript" src="jquery-1.9.1.js" ></script>
+			<script>
+		function divshow(id){ 
+  layer.open({
+	  type: 2, //page层
+	  title: '分派',
+	  shade: 0.6, //遮罩透明度
+	  area : [ '50%', '70%' ],
+	  moveType: 1, //拖拽风格，0是默认，1是传统拖动
+	  shift: 1, //0-6的动画形式，-1不开启
+	  content: ['www.html?','no'],//这里放路径
+	  offset: '100px',
+	  btn:['确定', '取消'],
+	  btn1:function(index,layer0){ 
+	  }
+    }); 
+}
+	</script>
+	</body>
+</html>

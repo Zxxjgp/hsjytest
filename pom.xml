@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>hsjytest</groupId>
   <artifactId>hsjytest</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>hsjytest</name>
   <url>http://maven.apache.org</url>
@@ -22,7 +22,6 @@
   </properties>
 
   <dependencies>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -330,10 +329,39 @@
       <artifactId>kotlin-stdlib-js</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib-jre8</artifactId>
+      <version>${kotlin.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-test</artifactId>
+      <version>${kotlin.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib-js</artifactId>
+      <version>${kotlin.version}</version>
+    </dependency>
     <!--    <dependency>
           <groupId>com.github.miemiedev</groupId>
           <artifactId>mybatis-paginator</artifactId>
         </dependency>-->
+
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus</artifactId>
+      <version>2.1-gamma</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+
   </dependencies>
   <build>
     <finalName>hsjytest</finalName>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>饼图</title>
+	<link rel="stylesheet" type="text/css" href="css/progressbar.css">
+	<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+	<style type="text/css">
+		body {
+			padding: 50px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="newBar" style="width:500px;height:100px;margin:10px auto;background:#333;">
+		<!-- <div class="progressbar-wrap">
+			<div class="progressbar-inner"></div>
+			<div class="max">34287万元</div>
+			<div class="value">4636万元</div>
+			<div class="percentage">13.52% </div>
+			<div class="comparison rise">1%</div>
+			<div class="bubble"></div>
+		</div> -->
+	</div>
+
+
+<script type="text/javascript" src="js/progressbar.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#newBar").progressbar({
+			max: ['34287','万元'],//最大值 必选项 以数组形式 [0]=最大的数 [1]=单位
+            value: ['5636','万元'],//最大值 必选项 以数组形式 [0]=最大的数 [1]=单位
+            percentage: true,//所占百分比 true显示 false不显示
+            prevValue: '5936',// 前一个数值
+            comparison: comparison,//对比值 此值必须设置prevValue 与前一个数值对比 上升或下降 null为不显示 callback 返回里面显示的内容
+            bubble: 'show' //是否显示定位气泡 show=显示 false = 不显示
+		});
+	});
+	function comparison(value, prevValue) {
+		var innerHtml = ((parseInt(value)-parseInt(prevValue))/parseInt(prevValue)*100).toFixed(2)+'%';
+		return innerHtml;
+	}
+</script>
+</body>
+</html>

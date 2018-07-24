@@ -14,6 +14,7 @@ public class ListToHeavy {
         list.add("美女");
         list.add("胖子");
         String [] str = {"气囊","秦朗","秦朗","秦朗"};
+        ListToHeavy.iter(list);
 /*
         System.out.println(str.length);
 
@@ -63,7 +64,6 @@ public class ListToHeavy {
     }
     //删除元素
     public static  List setArrayList(List list){
-        ArrayList<String> lists= new ArrayList<>();
         Iterator<String> iterator= list.iterator();
         while (iterator.hasNext()) {
             String str = iterator.next();
@@ -72,6 +72,15 @@ public class ListToHeavy {
             }
         }
         return list;
+    }
+
+    //集合的遍历
+    public static List iter(List list){
+        Collection<String> persons = new ArrayList<String>(list);
+        for (String h: persons) {
+            System.out.println(h);
+        }
+        return  list;
     }
 
     //元素的去重

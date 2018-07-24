@@ -34,7 +34,27 @@
         <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
         <property name="prefix" value="/view/" />
         <property name="suffix" value=".jsp" />
+
     </bean>
+<!--    <bean id="sqlSessionFactory"
+          class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="/WEB-INF/classes/mybaties/mybatis-config.xml" />
+        <property name="typeAliasesPackage" value="com.entity" />
+        <property name="mapperLocations" value="/WEB-INF/classes/mapper/xml/*.xml" />
+        <property name="plugins">
+            <array>
+                &lt;!&ndash; 分页插件配置 &ndash;&gt;
+                <bean id="paginationInterceptor"
+                      class="com.baomidou.mybatisplus.plugins.PaginationInterceptor">
+                    <property name="dialectType" value="mysql" />
+                </bean>
+            </array>
+        </property>
+        &lt;!&ndash; MP 全局配置注入 &ndash;&gt;
+        <property name="globalConfig" ref="globalConfig"/>
+    </bean>-->
+
 
     <!-- 配置springMVC处理上传文件的信息 -->
     <bean id="multipartResolver"

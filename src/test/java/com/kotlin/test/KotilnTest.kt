@@ -57,12 +57,14 @@ class Greeter{
         }
         return n1.toDouble() / n2
     }
+/*
 
     fun charintoint(c: Char): Int {
         if (c !in '0'..'2')
             throw IllegalArgumentException("Out of range")
         return c.toInt() - '0'.toInt() // 显式转换为数字
     }
+*/
 
     fun compare(a: Int, b : Int) : Int{
     /*    val max = if (a > b) a else b   //比较大小*/
@@ -258,9 +260,9 @@ fun main(args: Array<String>) {
     println(sub.length)
     println(sub.capacity())*/
 
-    val sub2 = StringBuilder("hello wordsd")
+/*    val sub2 = StringBuilder("hello wordsd")
     sub2.append(555555555).append("\n").append('c').append("dwew")
     sub2.delete(1,2)
     sub2.replace(1,2,"前的")
-    println(sub2)
+    println(sub2)*/
 }

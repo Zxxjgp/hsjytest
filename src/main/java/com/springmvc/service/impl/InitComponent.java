@@ -29,18 +29,21 @@ public class InitComponent implements ServletContextListener,ApplicationContextA
 
     private static ApplicationContext applicationContext;
 
+    @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         // TODO Auto-generated method stub
         this.applicationContext=applicationContext;
     }
 
+    @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         ServletContext application=servletContextEvent.getServletContext();
-
+        System.out.println("listener以及启动了");
         DiseaseTypeService blogTypeService=(DiseaseTypeService) applicationContext.getBean("diseaseTypeService");
-        List<DiseaseType> hospitalList=blogTypeService.findists(); // 查询博客类别以及博客的数量
+        List<DiseaseType> hospitalList=blogTypeService.findists();
         application.setAttribute("hospitalList", hospitalList);
     }
+    @Override
     public void contextDestroyed(ServletContextEvent sce) {
         // TODO Auto-generated method stub
 

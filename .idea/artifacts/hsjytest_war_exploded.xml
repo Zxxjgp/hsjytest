@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="hsjytest:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/hsjytest_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/hsjytest</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -98,7 +98,18 @@
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-redis:1.6.0.RELEASE" />
           <element id="library" level="project" name="Maven: redis.clients:jedis:2.7.3" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.3" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.51" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.2.51" />
+          <element id="library" level="project" name="Maven: org.jetbrains:annotations:13.0" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.51" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-js:1.2.51" />
+          <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.2.51" />
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus:2.1-gamma" />
+          <element id="library" level="project" name="Maven: org.apache.velocity:velocity:1.7" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/hsjytest/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="hsjytest/web/Web" />
     </root>

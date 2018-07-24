@@ -5,10 +5,22 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+/**
+ * @author HSHY-394
+ */
 public class Person {
     private String id;
-    private String useranme;
+    private String username;
     private String password;
+    private String time;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
 
@@ -22,12 +34,12 @@ public class Person {
         this.id = id;
     }
 
-    public String getUseranme() {
-        return useranme;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUseranme(String useranme) {
-        this.useranme = useranme;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

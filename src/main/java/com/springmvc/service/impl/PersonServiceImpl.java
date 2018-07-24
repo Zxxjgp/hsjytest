@@ -17,4 +17,9 @@ public class PersonServiceImpl implements PersonService {
     public List<Person> findAllList() {
         return personDao.findAllList();
     }
+
+    @Override
+    public int updateandinsert(Person person) {
+        return personDao.updateandinsert(person);
+    }
 }

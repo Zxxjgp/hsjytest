@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PersonService {
     List<Person> findAllList();
+    int updateandinsert(Person person);
 }
