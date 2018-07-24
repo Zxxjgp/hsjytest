@@ -32,8 +32,7 @@ public class CollectorsTest {
         list.add("美女");
         list.add("胖子");
         list = list.stream().distinct().collect(Collectors.toList());
-        String cloectors = list.iterator().next();
-        System.out.println(cloectors.toString());
+
         System.out.println(list.size());
     }
 }
