@@ -13,5 +13,7 @@ package com.utils.collectors;
  * @Version: 1.0
  */
 public class OptionalTest {
+    public static void main(String[] args) {
 
+    }
 }
