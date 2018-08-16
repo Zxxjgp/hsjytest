@@ -53,7 +53,7 @@ public class EachertsController {
         List temp=new ArrayList();
         Map<String,String> map = new HashMap();
         //用来查询所有的有效数据
-        List<com.springmvc.pojo.Map> list1 = eachertsService.selectall();
+        List<com.springmvc.pojo.Map<Number, String>> list1 = eachertsService.selectall();
         for (int i = 0; i < list1.size(); i++) {
             List<String> vlu=new ArrayList();
             map.put("name", list1.get(i).getName());
@@ -72,8 +72,8 @@ public class EachertsController {
         List result=new ArrayList();
         String[] str=new String[2];
         Map<String,String> mp = new HashMap <>();
-        List<com.springmvc.pojo.Map> list = eachertsService.selectall();
-        for (com.springmvc.pojo.Map mapeneity: list) {
+        List<com.springmvc.pojo.Map<Number, String>> list = eachertsService.selectall();
+        for (com.springmvc.pojo.Map<Number, String> mapeneity: list) {
             mp.put("name",mapeneity.getName());
             str[0] = mapeneity.getX();
             str[1] = mapeneity.getY();
@@ -90,8 +90,8 @@ public class EachertsController {
     @ResponseBody
     private List<ChinaMap> chinamap(){
         List<ChinaMap> re = new ArrayList();
-        List<com.springmvc.pojo.Map> list = eachertsService.selectall();
-        for(com.springmvc.pojo.Map map: list) {
+        List<com.springmvc.pojo.Map<Number, String>> list = eachertsService.selectall();
+        for(com.springmvc.pojo.Map<Number, String> map: list) {
             ChinaMap chinaMap = new ChinaMap();
             List<String> vlu=new ArrayList();
             chinaMap.setName(map.getName());

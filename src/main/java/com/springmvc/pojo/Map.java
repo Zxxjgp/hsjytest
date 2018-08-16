@@ -1,6 +1,6 @@
 package com.springmvc.pojo;
 
-public class Map {
+public class Map<I extends Number, S> {
     private String id;
 
     private String name;

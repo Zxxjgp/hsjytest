@@ -21,7 +21,7 @@ public class EachertsServiceImpl implements EachertsService {
     }
 
     @Override
-    public List <Map> selectall() {
+    public List <Map<Number, String>> selectall() {
         return mapDao.selectall();
     }
 }

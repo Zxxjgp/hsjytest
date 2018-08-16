@@ -9,6 +9,6 @@ import java.util.List;
  * @date 2018.4.22
  * @author jgp
  */
-public interface MapDao extends CrudDao<Map> {
-       List<Map> selectall();
+public interface MapDao extends CrudDao<Map<Number, String>> {
+       List<Map<Number, String>> selectall();
 }

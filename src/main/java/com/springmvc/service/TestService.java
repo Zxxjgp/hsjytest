@@ -10,4 +10,6 @@ public interface TestService {
     int insertlist(Test test);
     int listinsert(String[] list);
     int listsert(List<Test> list);
+    Test finding();
+    List<Test> listDa();
 }

@@ -10,4 +10,5 @@ public interface TestDao {
     int listinsert(String[] list);
 
     int listsert(List<Test> list);
+    List<Test> listDa();
 }

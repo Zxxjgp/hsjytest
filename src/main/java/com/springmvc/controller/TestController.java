@@ -7,10 +7,7 @@ import com.springmvc.pojo.Test;
 import com.springmvc.service.DiseaseTypeService;
 import com.springmvc.service.PersonService;
 import com.springmvc.service.TestService;
-import com.springmvc.utils.DesensitizationNumber;
-import com.springmvc.utils.Page;
-import com.springmvc.utils.RedisDao;
-import com.springmvc.utils.ServerFileUploadUtil;
+import com.springmvc.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +41,13 @@ public class TestController {
 
     @Resource
     private RedisDao redisDao;
+
+    @RequestMapping("listda")
+    @ResponseBody
+    public List<Test> gt(){
+        return testService.listDa();
+    }
+
 
     @RequestMapping(value = "/inde")
     public String find(Model model){
@@ -157,5 +161,9 @@ public class TestController {
 
        return redisDao.get("06bbe294f8374da0bf31546c2d24631curl");
    }
-
+    @RequestMapping(value = "ceshi")
+    @ResponseBody
+    public ObjectRestResponse<Test> getinfo(){
+       return new ObjectRestResponse<Test>().result(testService.finding());
+    }
 }

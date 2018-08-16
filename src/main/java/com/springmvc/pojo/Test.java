@@ -8,6 +8,16 @@ public class Test {
     private  String name;
     private String file;
 
+    private String tt;
+
+    public String getTt() {
+        return tt;
+    }
+
+    public void setTt(String tt) {
+        this.tt = tt;
+    }
+
     public String getTitle() {
         return title;
     }

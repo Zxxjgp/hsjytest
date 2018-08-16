@@ -1,6 +1,7 @@
 package com.springmvc.service.impl;
 
 import com.springmvc.dao.TestDao;
+import com.springmvc.exception.auth.AuthException;
 import com.springmvc.pojo.Test;
 import com.springmvc.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,15 @@ public class TestServiceImpl implements TestService {
     @Override
     public int listsert(List<Test> list){
         return  testDao.listsert(list);
+    }
+
+    @Override
+    public Test finding() {
+        throw  new AuthException("Test Glober Exception");
+    }
+
+    @Override
+    public List<Test> listDa() {
+        return testDao.listDa();
     }
 }

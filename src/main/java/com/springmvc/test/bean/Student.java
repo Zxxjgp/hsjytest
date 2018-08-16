@@ -1,5 +1,7 @@
 package com.springmvc.test.bean;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.print.DocFlavor;
 
 /**
@@ -24,6 +26,7 @@ public class Student {
         this.factior = factior;
         this.girlFriends = girlFriends;
     }
+
 
     public Student(String factior) {
         this.factior = factior;

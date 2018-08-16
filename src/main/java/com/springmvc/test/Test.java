@@ -1,16 +1,23 @@
 package com.springmvc.test;
 
-import java.util.*;
 import java.util.function.Function;
 
 class Test {
 
     public static void main(String args[]) {
 
-        int result = computes(5, 6, value -> value * value);
+        String[] book = {"qqq","2222","dsds"};
+        for (String b:
+             book) {
+            b = "32323";
+            System.out.println(b);
+        }
+
+
+/*        int result = computes(5, 6, value -> value * value);
         System.out.println(result);
         int g=   computeqq(2, value -> value * 3, value -> value * value);
-        System.out.println(g);
+        System.out.println(g);*/
     }
 
     public static String compute(int a, Function<Integer, String> function) {

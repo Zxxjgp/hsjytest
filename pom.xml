@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>hsjytest</groupId>
   <artifactId>hsjytest</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>hsjytest</name>
   <url>http://maven.apache.org</url>
@@ -318,20 +318,15 @@
       <artifactId>kotlin-stdlib-jre8</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-test</artifactId>
-      <version>${kotlin.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-js</artifactId>
+      <artifactId>kotlin-stdlib-jdk8</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
+      <artifactId>kotlin-reflect</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
     <dependency>
@@ -345,6 +340,7 @@
       <artifactId>kotlin-stdlib-js</artifactId>
       <version>${kotlin.version}</version>
     </dependency>
+
     <!--    <dependency>
           <groupId>com.github.miemiedev</groupId>
           <artifactId>mybatis-paginator</artifactId>
@@ -361,6 +357,12 @@
       <version>1.7</version>
     </dependency>
 
+    <!--文件的解析-->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>1.4.10</version>
+    </dependency>
 
   </dependencies>
   <build>

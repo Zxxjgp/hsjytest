@@ -11,6 +11,9 @@
     <select id="find" resultMap="testtable">
         SELECT  * from admin
     </select>
+    <select id="listDa" resultMap="testtable">
+        SELECT username AS tt FROM person
+    </select>
 
     <insert id="insertlist">
         INSERT  into admin  (username , password ) VALUES
