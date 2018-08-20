@@ -1,6 +1,6 @@
 package com.kotlin.test;
 
-public class Person {
+class Persons {
     private String account;
 
     private String token;

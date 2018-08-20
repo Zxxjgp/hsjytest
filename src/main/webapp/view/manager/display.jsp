@@ -12,7 +12,7 @@
 </body>
 <script type="text/javascript">
     //初始化echarts
-    function chushihua(myChart){
+    function chushihua(myChart,data1,data2,data3){
         var option = {
             title:{
                 text:'ECharts 数据统计'

@@ -1,6 +1,6 @@
 package com.springmvc.pojo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+/*import com.fasterxml.jackson.annotation.JsonFormat;*/
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -49,7 +49,7 @@ public class Person {
     public void setPassword(String password) {
         this.password = password;
     }
-    @JsonFormat(pattern="yyyy-MM-dd")
+ //   @JsonFormat(pattern="yyyy-MM-dd")
     public Date getBirthday() {
         return birthday;
     }

@@ -175,4 +175,6 @@ fun main(args: Array<String>){
         println(mylist[i])
     }*/
 
+    var g = 11
+    println(g.inv())
 }
