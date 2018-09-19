@@ -209,6 +209,11 @@
       <version>2.1.0</version>
     </dependency>
 
+      <dependency>
+          <groupId>com.caucho</groupId>
+          <artifactId>hessian</artifactId>
+          <version>3.1.5</version>
+      </dependency>
     <!-- 上传组件包 -->
     <dependency>
       <groupId>commons-fileupload</groupId>

@@ -13,6 +13,23 @@
     <param-value>classpath:spring-mybatis.xml</param-value>
   </context-param>
 
+
+  <servlet>
+    <servlet-name>HessianServlet</servlet-name>
+    <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
+    <init-param>
+      <param-name>service-class</param-name>
+      <param-value>com.springmvc.kafaka.BasicImpl</param-value>
+    </init-param>
+
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HessianServlet</servlet-name>
+    <url-pattern>/hessian</url-pattern>
+  </servlet-mapping>
+
+
   <!--Log4j配置-->
   <context-param>
     <param-name>log4jRefreshInterval</param-name>
@@ -80,4 +97,5 @@
   <session-config>
     <session-timeout>15</session-timeout>
   </session-config>
+
 </web-app>
