@@ -31,12 +31,11 @@ public class CollectorsTest {
                 add(new Student(20160002, "伯约", 21, 2, "信息安全", "武汉大学"));
                 add(new Student(20160003, "玄德", 22, 3, "经济管理", "武汉大学"));
                 add(new Student(20160004, "云长", 21, 2, "信息安全", "武汉大学"));
-                add(new Student(20161001, "翼德", 21, 2, "机械与自动化", "华中科技大学"));
-                add(new Student(20161002, "元直", 23, 4, "土木工程", "华中科技大学"));
-                add(new Student(20161003, "奉孝", 23, 4, "计算机科学", "华中科技大学"));
-                add(new Student(20162001, "仲谋", 22, 3, "土木工程", "浙江大学"));
-                add(new Student(20162002, "鲁肃", 23, 4, "计算机科学", "浙江大学"));
-                add(new Student(20163001, "丁奉", 24, 5, "土木工程", "南京大学"));
+                add(new Student(20160005, "翼德", 21, 2, "机械与自动化", "华中科技大学"));
+                add(new Student(20160006, "元直", 23, 4, "土木工程", "华中科技大学"));
+                add(new Student(20160007, "奉孝", 23, 4, "计算机科学", "华中科技大学"));
+                add(new Student(20160008, "仲谋", 22, 3, "土木工程", "浙江大学"));
+                add(new Student(20160009, "鲁肃", 23, 4, "计算机科学", "浙江大学"));
             }
         };
 
@@ -96,7 +95,7 @@ public class CollectorsTest {
 */
 
 
-        List<Integer> integers =  Arrays.asList(3,2,3,1,2,5,6,8,56,65);
+   //     List<Integer> integers =  Arrays.asList(3,2,3,1,2,5,6,8,56,65);
 /*        IntSummaryStatistics summaryStatistics = integers.stream().mapToInt(x -> x*x).summaryStatistics();
         System.out.println("最大数"+summaryStatistics.getMax());
         System.out.println("最小数"+summaryStatistics.getMin());
@@ -115,9 +114,9 @@ public class CollectorsTest {
 /*        long count = integers.stream().count();
         System.out.println(count);*/
         // 前面例子中的方法
-        int totalAge = students.stream()
+/*        int totalAge = students.stream()
                 .filter(student -> "计算机科学".equals(student.getMajor()))
-                .mapToInt(Student::getAge).sum();
+                .mapToInt(Student::getAge).sum();*/
 // 归约操作
 /*        int totalAge = students.stream()
                 .filter(student -> "计算机科学".equals(student.getMajor()))
@@ -135,6 +134,30 @@ public class CollectorsTest {
                 .filter(student -> "计算机科学".equals(student.getMajor()))
                 .map(Student::getAge)
                 .reduce(Integer::sum);  // 去掉初始值*/
-        System.out.println(totalAge);
+       /* System.out.println(totalAge);*/
+        //students.remove(0);
+/*        System.out.println(students.size());
+
+        Iterator<Student> iterator= students.iterator();
+        while (iterator.hasNext()){
+            Student next = iterator.next();
+            if (20160001 == next.getId()){
+                iterator.remove();
+            }
+        }*/
+        System.out.println(students.size());
+
+
+        System.out.println(
+                Arrays.asList(new String[] { "a", "b" }));
+
+        System.out.println(
+                Arrays.asList(new Integer[] { 1, 2 }));
+
+        System.out.println(
+                Arrays.asList(new int[] { 1, 2 }));
+
+        System.out.println(
+                Arrays.asList(new String[] { "a", "b" }, "c"));
     }
 }
