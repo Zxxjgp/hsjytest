@@ -17,7 +17,7 @@ public class ConsumerDemo {
     public static void main(String[] args){
         Properties properties = new Properties();
         properties.put("bootstrap.servers", "192.168.184.128:9092");
-        properties.put("group.id", "group-1");
+        properties.put("group.id", "test-consumer-group");
         properties.put("enable.auto.commit", "true");
         properties.put("auto.commit.interval.ms", "1000");
         properties.put("auto.offset.reset", "earliest");
@@ -28,8 +28,12 @@ public class ConsumerDemo {
         KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(properties);
         kafkaConsumer.subscribe(Arrays.asList("firsttest"));
         while (true) {
-            ConsumerRecords<String, String> records = kafkaConsumer.poll(100);
+            ConsumerRecords<String, String> records = kafkaConsumer.poll(1000);
             for (ConsumerRecord<String, String> record : records) {
+
+
+                System.out.println(record.value()+record.topic()+"啊啊啊啊爱爱啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊");
+
                 System.out.printf("offset = %d, value = %s", record.offset(), record.value());
                 System.out.println();
             }
